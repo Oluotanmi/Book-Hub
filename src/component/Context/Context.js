@@ -5,7 +5,7 @@ const URL = "https://openlibrary.org/search.json?title=";
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-    const [searchTerm, setSearchTerm] = useState("Lord of the rings");
+    const [searchTerm, setSearchTerm] = useState("Lord of the rings....");
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(true)
     const [resultTitle, setResultTitle]=useState("")

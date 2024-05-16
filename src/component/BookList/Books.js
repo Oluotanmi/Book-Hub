@@ -16,7 +16,7 @@ const Books =(book)=> {
 
           <div>
             <span>Author:</span>
-            <span>{book.author.join(", ")}</span>
+            <span>{book.author}</span>
           </div>
 
           <div>
