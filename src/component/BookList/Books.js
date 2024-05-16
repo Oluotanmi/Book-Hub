@@ -29,7 +29,7 @@ const Books =(book)=> {
             <span>{book.first_publish_year}</span>
           </div>
 
-          <Link to={`/book/${book.id}`} {...book}>
+          <Link to={`/bookdetails/${book.id}`}>
              <button className="sm:p-3 sm:m-3 bg-pink-700 rounded-md text-white font-medium">View Details</button>
           </Link>
 

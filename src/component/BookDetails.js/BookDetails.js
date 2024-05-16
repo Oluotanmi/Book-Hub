@@ -9,13 +9,14 @@ const URL = "https://openlibrary.org/works/"
 const BookDetails =() => {
   const {id} = useParams();
   const [loading, setLoading] = useState(false);
-  const [book, setBooks] = useState()
+  const [book, setBooks] = useState(null)
   const navigate = useNavigate()
 
   const image ='./7972491.jpg'
 
     useEffect(() => {
       setLoading(true);
+
        async function getBookDetails(){
         try{
           const response = await fetch(`${URL}${id}.json`);
@@ -33,11 +34,13 @@ const BookDetails =() => {
               subjects: subjects ? subjects.join(", ") : "No subjects found" 
             };
             setBooks(newBook)
+
             console.log(newBook)
-          
+            console.log(book.cover_img)
           }else {
-            setBooks()
+            setBooks(null)
           }
+          setLoading(false)
         }catch(error){
            console.log(error);
            setLoading(false)
@@ -55,8 +58,8 @@ const BookDetails =() => {
            <h1>Go back</h1>
         </div>
          <div>
-           <img className="" src={book?.cover_img} />
-           <div className="m-2 sm:p-5 bg-pink-300">
+           {/* <img className="w-20" src={book?.cover_img} /> */}
+           <div className="m-2 sm:p-5 rounded-sm bg-pink-300">
               <h1 className="font-extrabold text-lg text-pink-800">{book?.title}</h1>
               <p className="font-bold">{book?.description}</p>
               <h2 className="text-pink-800">{book?.subject_places}</h2>
